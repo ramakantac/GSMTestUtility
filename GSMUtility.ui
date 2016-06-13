@@ -9,19 +9,23 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>792</width>
-    <height>372</height>
+    <width>752</width>
+    <height>461</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Elementz_GSM_Utility</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="background.qrc">
+    <normaloff>:/background/Icons/AIbEiAIAAABECP2Iptyl4PzmnAEiC3ZjYXJkX3Bob3RvKihiMjczYWVlNWQ1ZWVlNjYyY2U2NzA5YWUwNzgzMjE2MmZkMGYxN2Q5MAFyoVXTDsx0nC3OGfmWE7vsTYpe9Q.jpg</normaloff>:/background/Icons/AIbEiAIAAABECP2Iptyl4PzmnAEiC3ZjYXJkX3Bob3RvKihiMjczYWVlNWQ1ZWVlNjYyY2U2NzA5YWUwNzgzMjE2MmZkMGYxN2Q5MAFyoVXTDsx0nC3OGfmWE7vsTYpe9Q.jpg</iconset>
   </property>
   <property name="styleSheet">
-   <string notr="true">QMainWindow{background-image: url(:/Background/Icons/background.jpg);background-repeat: repeat;}
+   <string notr="true">QMainWindow{background-image: url(:/background/Icons/background.jpg);background-repeat: repeat;}
 
 QToolBar{background:blue;}
 
-QWidget#tabWidget{background-color: blue;}
+QWidget#scrollArea{background-color: blue;}
 QTabBar::tab { background: darkblue; color: white; padding: 10px; border: 2px solid blue;}
 QTabBar::tab:selected {background: rgb(217, 217, 0);  color: black; }
 QTabBar::tab:!selected {background:darkblue;  color: white;}
@@ -60,7 +64,56 @@ QPlainTextEdit {border:4px outset; border-radius: 0px; border-color: blue; color
     </sizepolicy>
    </property>
    <layout class="QGridLayout" name="gridLayout_5">
-    <item row="1" column="0">
+    <item row="1" column="3">
+     <widget class="QPushButton" name="pushButton_6">
+      <property name="text">
+       <string>Clear Log</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="3">
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string>Serial Terminal</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <spacer name="horizontalSpacer_14">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="2" column="3">
+     <widget class="QPlainTextEdit" name="SerialConsole">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>300</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="toolTip">
+       <string>Serial Console is readonly!!</string>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+      <property name="plainText">
+       <string>Serial Console</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1">
      <widget class="QTabWidget" name="tabWidget">
       <property name="enabled">
        <bool>true</bool>
@@ -70,6 +123,15 @@ QPlainTextEdit {border:4px outset; border-radius: 0px; border-color: blue; color
         <horstretch>0</horstretch>
         <verstretch>100</verstretch>
        </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>200</width>
+        <height>50</height>
+       </size>
+      </property>
+      <property name="mouseTracking">
+       <bool>true</bool>
       </property>
       <property name="toolTip">
        <string/>
@@ -84,10 +146,49 @@ QPlainTextEdit {border:4px outset; border-radius: 0px; border-color: blue; color
        <bool>false</bool>
       </property>
       <property name="styleSheet">
-       <string notr="true"/>
+       <string notr="true">QMainWindow{background-image: url(:/Background/Icons/background.jpg);}
+
+QToolBar{background:blue;}
+
+QWidget#tabWidget{background-color: blue;}
+QTabBar::tab { background: darkblue; color: white; padding: 10px; border: 2px solid blue;}
+QTabBar::tab:selected {background: rgb(217, 217, 0);  color: black; }
+QTabBar::tab:!selected {background:darkblue;  color: white;}
+/*QTabBar {background-color: blue;} */
+QTabBar::tab:hover{color:#ccc;	background-color: qlineargradient(spread:pad, x1:0.517, y1:0, x2:0.517, y2:1, stop:0 rgba(45, 45, 45, 255), stop:0.505682 rgba(45, 45, 45, 255), stop:1 rgba(29, 29, 29, 255));	border-color:#2d89ef;border-width:2px;}
+
+QPushButton{border-style:solid;background-color:darkblue;color:white;border-radius:3px;font: 12pt &quot;MS Shell Dlg 2&quot;;}
+QPushButton:hover{color:#ccc;	background-color: qlineargradient(spread:pad, x1:0.517, y1:0, x2:0.517, y2:1, stop:0 rgba(45, 45, 45, 255), stop:0.505682 rgba(45, 45, 45, 255), stop:1 rgba(29, 29, 29, 255));	border-color:#2d89ef;border-width:2px;}
+QPushButton:pressed{background-color: lightblue;}
+QPushButton:disabled{background-color: rgb(176, 176, 176);}
+
+QPushButton#connectButton{ background-color: darkred;}
+QPushButton#connectButton:hover{color:#ccc;	background-color: qlineargradient(spread:pad, x1:0.517, y1:0, x2:0.517, y2:1, stop:0 rgba(45, 45, 45, 255), stop:0.505682 rgba(45, 45, 45, 255), stop:1 rgba(29, 29, 29, 255));	border-color:#2d89ef;border-width:2px;}
+QPushButton#connectButton:pressed{background-color: lightblue;}
+QPushButton#connectButton:disabled{background-color: rgb(176, 176, 176);}
+
+QComboBox{border-style:solid;background-color:darkblue;color:white;border-radius:3px;font: 12pt &quot;MS Shell Dlg 2&quot;; padding: 10px}
+QComboBox:hover{color:#ccc;	background-color: qlineargradient(spread:pad, x1:0.517, y1:0, x2:0.517, y2:1, stop:0 rgba(45, 45, 45, 255), stop:0.505682 rgba(45, 45, 45, 255), stop:1 rgba(29, 29, 29, 255));	border-color:#2d89ef;border-width:2px;}
+QComboBox:pressed{background-color: lightblue;}
+
+QLineEdit {border:4px outset; border-radius: 8px; border-color: blue; color:rgb(0, 0, 0);  background-color: rgb(235, 235, 235); padding:10px;font: 75 12pt &quot;MS Shell Dlg 2&quot;;}
+/*QLineEdit { border-radius: 8px;  color:black;background-color: white; } */
+QLineEdit:focus {  border:4px outset; border-radius: 8px; border-color: rgb(41, 237, 215); color:rgb(0, 0, 0);  background-color: rgb(240, 204, 204); }
+
+QLabel {border:4px outset; border-radius: 0px; border-color: blue; color:white;  background-color: darkblue; padding:5px;font: 75 12pt &quot;MS Shell Dlg 2&quot;;}
+QPlainTextEdit {border:4px outset; border-radius: 0px; border-color: blue; color:black;  background-color: rgb(235, 235, 235);; padding:5px;font: 75 12pt &quot;MS Shell Dlg 2&quot;;}</string>
+      </property>
+      <property name="inputMethodHints">
+       <set>Qt::ImhNone</set>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>3</number>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>40</width>
+        <height>40</height>
+       </size>
       </property>
       <property name="documentMode">
        <bool>true</bool>
@@ -103,19 +204,6 @@ QPlainTextEdit {border:4px outset; border-radius: 0px; border-color: blue; color
         <string>Settings</string>
        </attribute>
        <layout class="QGridLayout" name="gridLayout">
-        <item row="3" column="1">
-         <spacer name="verticalSpacer_3">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>20</width>
-            <height>60</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
         <item row="0" column="1">
          <spacer name="verticalSpacer">
           <property name="orientation">
@@ -128,22 +216,6 @@ QPlainTextEdit {border:4px outset; border-radius: 0px; border-color: blue; color
            <size>
             <width>20</width>
             <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item row="6" column="1">
-         <spacer name="verticalSpacer_2">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
-          </property>
-          <property name="sizeType">
-           <enum>QSizePolicy::Expanding</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>20</width>
-            <height>40</height>
            </size>
           </property>
          </spacer>
@@ -164,43 +236,34 @@ QPlainTextEdit {border:4px outset; border-radius: 0px; border-color: blue; color
           </property>
          </spacer>
         </item>
-        <item row="5" column="3">
-         <widget class="QPushButton" name="connectButton">
-          <property name="enabled">
-           <bool>true</bool>
+        <item row="3" column="1">
+         <spacer name="verticalSpacer_3">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
           </property>
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-            <horstretch>100</horstretch>
-            <verstretch>100</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="minimumSize">
+          <property name="sizeHint" stdset="0">
            <size>
-            <width>200</width>
-            <height>50</height>
+            <width>20</width>
+            <height>60</height>
            </size>
           </property>
-          <property name="maximumSize">
+         </spacer>
+        </item>
+        <item row="6" column="1">
+         <spacer name="verticalSpacer_2">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Expanding</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
            <size>
-            <width>200</width>
-            <height>50</height>
+            <width>20</width>
+            <height>40</height>
            </size>
           </property>
-          <property name="text">
-           <string>Connect</string>
-          </property>
-          <property name="icon">
-           <iconset resource="background.qrc">
-            <normaloff>:/Icons/Icons/connect.png</normaloff>:/Icons/Icons/connect.png</iconset>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>32</width>
-            <height>32</height>
-           </size>
-          </property>
-         </widget>
+         </spacer>
         </item>
         <item row="5" column="2">
          <spacer name="horizontalSpacer_2">
@@ -231,6 +294,35 @@ QPlainTextEdit {border:4px outset; border-radius: 0px; border-color: blue; color
           </property>
          </spacer>
         </item>
+        <item row="2" column="4">
+         <spacer name="horizontalSpacer_5">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="2" column="2">
+         <spacer name="horizontalSpacer_4">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Fixed</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>10</width>
+            <height>10</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
         <item row="2" column="3">
          <widget class="QPushButton" name="findButton">
           <property name="sizePolicy">
@@ -256,7 +348,7 @@ QPlainTextEdit {border:4px outset; border-radius: 0px; border-color: blue; color
           </property>
           <property name="icon">
            <iconset resource="background.qrc">
-            <normaloff>:/Icons/Icons/find.png</normaloff>:/Icons/Icons/find.png</iconset>
+            <normaloff>:/icon/Icons/find.png</normaloff>:/icon/Icons/find.png</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -266,8 +358,8 @@ QPlainTextEdit {border:4px outset; border-radius: 0px; border-color: blue; color
           </property>
          </widget>
         </item>
-        <item row="2" column="2">
-         <spacer name="horizontalSpacer_4">
+        <item row="2" column="0">
+         <spacer name="horizontalSpacer_6">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
@@ -278,19 +370,6 @@ QPlainTextEdit {border:4px outset; border-radius: 0px; border-color: blue; color
            <size>
             <width>10</width>
             <height>10</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item row="2" column="4">
-         <spacer name="horizontalSpacer_5">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
            </size>
           </property>
          </spacer>
@@ -322,22 +401,6 @@ QPlainTextEdit {border:4px outset; border-radius: 0px; border-color: blue; color
            <enum>QComboBox::AdjustToContentsOnFirstShow</enum>
           </property>
          </widget>
-        </item>
-        <item row="2" column="0">
-         <spacer name="horizontalSpacer_6">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeType">
-           <enum>QSizePolicy::Fixed</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>10</width>
-            <height>10</height>
-           </size>
-          </property>
-         </spacer>
         </item>
         <item row="5" column="1">
          <widget class="QComboBox" name="baudcomboBox">
@@ -419,13 +482,77 @@ QPlainTextEdit {border:4px outset; border-radius: 0px; border-color: blue; color
           </item>
          </widget>
         </item>
+        <item row="5" column="3">
+         <widget class="QPushButton" name="connectButton">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>100</horstretch>
+            <verstretch>100</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>200</width>
+            <height>50</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>200</width>
+            <height>50</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Connect</string>
+          </property>
+          <property name="icon">
+           <iconset resource="background.qrc">
+            <normaloff>:/icon/Icons/connect.png</normaloff>:/icon/Icons/connect.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>32</width>
+            <height>32</height>
+           </size>
+          </property>
+         </widget>
+        </item>
        </layout>
       </widget>
       <widget class="QWidget" name="scriptTab">
        <attribute name="title">
-        <string>AT Script</string>
+        <string>Geek Mode</string>
        </attribute>
        <layout class="QGridLayout" name="gridLayout_2">
+        <item row="1" column="2">
+         <spacer name="horizontalSpacer_7">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="1" column="4">
+         <spacer name="horizontalSpacer_8">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
         <item row="1" column="3">
          <widget class="QPushButton" name="SendButton">
           <property name="sizePolicy">
@@ -440,8 +567,21 @@ QPlainTextEdit {border:4px outset; border-radius: 0px; border-color: blue; color
             <height>50</height>
            </size>
           </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(0, 85, 0);</string>
+          </property>
           <property name="text">
-           <string>Send</string>
+           <string>Execute</string>
+          </property>
+          <property name="icon">
+           <iconset resource="background.qrc">
+            <normaloff>:/icon/Icons/running_man.png</normaloff>:/icon/Icons/running_man.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>32</width>
+            <height>32</height>
+           </size>
           </property>
          </widget>
         </item>
@@ -464,27 +604,17 @@ QPlainTextEdit {border:4px outset; border-radius: 0px; border-color: blue; color
           </property>
          </widget>
         </item>
-        <item row="1" column="2">
-         <spacer name="horizontalSpacer_7">
+        <item row="1" column="0">
+         <spacer name="horizontalSpacer_12">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Fixed</enum>
           </property>
           <property name="sizeHint" stdset="0">
            <size>
             <width>20</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item row="1" column="4">
-         <spacer name="horizontalSpacer_8">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
             <height>20</height>
            </size>
           </property>
@@ -519,22 +649,6 @@ QPlainTextEdit {border:4px outset; border-radius: 0px; border-color: blue; color
           </property>
          </spacer>
         </item>
-        <item row="1" column="0">
-         <spacer name="horizontalSpacer_12">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeType">
-           <enum>QSizePolicy::Fixed</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>20</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
        </layout>
       </widget>
       <widget class="QWidget" name="callTab">
@@ -559,7 +673,7 @@ QPlainTextEdit {border:4px outset; border-radius: 0px; border-color: blue; color
          </spacer>
         </item>
         <item row="1" column="3">
-         <widget class="QPushButton" name="pushButton_2">
+         <widget class="QPushButton" name="Call_Button">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
             <horstretch>0</horstretch>
@@ -578,13 +692,26 @@ QPlainTextEdit {border:4px outset; border-radius: 0px; border-color: blue; color
             <height>50</height>
            </size>
           </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(0, 85, 0);</string>
+          </property>
           <property name="text">
            <string>Call</string>
+          </property>
+          <property name="icon">
+           <iconset resource="background.qrc">
+            <normaloff>:/icon/Icons/unnamed.png</normaloff>:/icon/Icons/unnamed.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>40</width>
+            <height>40</height>
+           </size>
           </property>
          </widget>
         </item>
         <item row="3" column="3">
-         <widget class="QPushButton" name="pushButton_3">
+         <widget class="QPushButton" name="Halt_Button">
           <property name="enabled">
            <bool>true</bool>
           </property>
@@ -606,13 +733,26 @@ QPlainTextEdit {border:4px outset; border-radius: 0px; border-color: blue; color
             <height>50</height>
            </size>
           </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(170, 0, 0);</string>
+          </property>
           <property name="text">
-           <string>Halt</string>
+           <string>End Call</string>
+          </property>
+          <property name="icon">
+           <iconset resource="background.qrc">
+            <normaloff>:/icon/Icons/unnamed (1).png</normaloff>:/icon/Icons/unnamed (1).png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>32</width>
+            <height>32</height>
+           </size>
           </property>
          </widget>
         </item>
         <item row="1" column="1">
-         <widget class="QLineEdit" name="lineEdit_2">
+         <widget class="QLineEdit" name="NumberlineEdit">
           <property name="minimumSize">
            <size>
             <width>100</width>
@@ -625,14 +765,44 @@ QPlainTextEdit {border:4px outset; border-radius: 0px; border-color: blue; color
             <height>16777215</height>
            </size>
           </property>
+          <property name="mouseTracking">
+           <bool>true</bool>
+          </property>
+          <property name="acceptDrops">
+           <bool>false</bool>
+          </property>
           <property name="toolTip">
            <string>Type phone number and press Call, eg: 09495XXXXXX</string>
+          </property>
+          <property name="inputMethodHints">
+           <set>Qt::ImhDigitsOnly</set>
           </property>
           <property name="text">
            <string/>
           </property>
+          <property name="maxLength">
+           <number>32767</number>
+          </property>
+          <property name="frame">
+           <bool>true</bool>
+          </property>
+          <property name="echoMode">
+           <enum>QLineEdit::Normal</enum>
+          </property>
+          <property name="cursorPosition">
+           <number>0</number>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+          </property>
           <property name="placeholderText">
-           <string>Eg: 09495XXXXXX</string>
+           <string>EX:944XXXXXXXX</string>
+          </property>
+          <property name="cursorMoveStyle">
+           <enum>Qt::LogicalMoveStyle</enum>
+          </property>
+          <property name="Count" stdset="0">
+           <number>0</number>
           </property>
          </widget>
         </item>
@@ -716,24 +886,27 @@ QPlainTextEdit {border:4px outset; border-radius: 0px; border-color: blue; color
        <attribute name="title">
         <string>SMS</string>
        </attribute>
-       <layout class="QGridLayout" name="gridLayout_4">
-        <item row="2" column="1">
-         <spacer name="verticalSpacer_10">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
+       <layout class="QGridLayout" name="gridLayout_10">
+        <item row="1" column="1">
+         <widget class="QLineEdit" name="lineEdit_3">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
           </property>
-          <property name="sizeType">
-           <enum>QSizePolicy::Fixed</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
+          <property name="minimumSize">
            <size>
-            <width>10</width>
-            <height>40</height>
+            <width>250</width>
+            <height>0</height>
            </size>
           </property>
-         </spacer>
+          <property name="placeholderText">
+           <string>Ex:944XXXXXXX</string>
+          </property>
+         </widget>
         </item>
-        <item row="1" column="3">
+        <item row="1" column="4" colspan="4">
          <widget class="QPushButton" name="pushButton_4">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -753,10 +926,131 @@ QPlainTextEdit {border:4px outset; border-radius: 0px; border-color: blue; color
             <height>50</height>
            </size>
           </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(0, 85, 0);</string>
+          </property>
           <property name="text">
            <string>Send</string>
           </property>
+          <property name="icon">
+           <iconset resource="background.qrc">
+            <normaloff>:/icon/Icons/Telegram (1).png</normaloff>:/icon/Icons/Telegram (1).png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>32</width>
+            <height>32</height>
+           </size>
+          </property>
          </widget>
+        </item>
+        <item row="3" column="1" colspan="4">
+         <widget class="QLabel" name="label_6">
+          <property name="styleSheet">
+           <string notr="true">background-color: rgba(255, 255, 255, 0);
+border-color: rgba(255, 255, 255, 0);</string>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;&lt;span style=&quot; color:#ff0000;&quot;&gt;No of Character Entered :&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="7">
+         <widget class="QLineEdit" name="lineEdit">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>10</width>
+            <height>0</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="1" colspan="7">
+         <widget class="QLineEdit" name="lineEdit_12">
+          <property name="placeholderText">
+           <string>Caution:Try not to exceed 140 character</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <spacer name="verticalSpacer_11">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Fixed</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="1" column="2">
+         <spacer name="horizontalSpacer_15">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="1" column="3">
+         <spacer name="horizontalSpacer_16">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Fixed</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>10</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="1" column="8">
+         <spacer name="horizontalSpacer_17">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Fixed</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>10</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="3" column="6">
+         <spacer name="horizontalSpacer_18">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
         </item>
         <item row="1" column="0">
          <spacer name="horizontalSpacer_13">
@@ -774,8 +1068,24 @@ QPlainTextEdit {border:4px outset; border-radius: 0px; border-color: blue; color
           </property>
          </spacer>
         </item>
-        <item row="1" column="4">
-         <spacer name="horizontalSpacer_15">
+        <item row="4" column="7">
+         <spacer name="verticalSpacer_12">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Fixed</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>5</width>
+            <height>5</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="3" column="8">
+         <spacer name="horizontalSpacer_19">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
@@ -787,8 +1097,50 @@ QPlainTextEdit {border:4px outset; border-radius: 0px; border-color: blue; color
           </property>
          </spacer>
         </item>
-        <item row="1" column="2">
-         <spacer name="horizontalSpacer_14">
+        <item row="5" column="8">
+         <spacer name="horizontalSpacer_20">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="2" column="1">
+         <spacer name="verticalSpacer_9">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Fixed</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="6" column="1">
+         <spacer name="verticalSpacer_10">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="3" column="5">
+         <spacer name="horizontalSpacer_21">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
@@ -803,92 +1155,999 @@ QPlainTextEdit {border:4px outset; border-radius: 0px; border-color: blue; color
           </property>
          </spacer>
         </item>
-        <item row="1" column="1">
-         <widget class="QLineEdit" name="lineEdit_3">
-          <property name="minimumSize">
-           <size>
-            <width>100</width>
-            <height>50</height>
-           </size>
-          </property>
-          <property name="toolTip">
-           <string>Enter phone number, Write message below and Press Send button</string>
-          </property>
-          <property name="statusTip">
-           <string/>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="placeholderText">
-           <string>Eg: 9495XXXXXX</string>
-          </property>
-         </widget>
-        </item>
-        <item row="4" column="1">
-         <spacer name="verticalSpacer_9">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>20</width>
-            <height>40</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
+       </layout>
+       <zorder>lineEdit_3</zorder>
+       <zorder>pushButton_4</zorder>
+       <zorder>label_6</zorder>
+       <zorder>lineEdit</zorder>
+       <zorder>lineEdit_12</zorder>
+       <zorder>horizontalSpacer_13</zorder>
+       <zorder>verticalSpacer_9</zorder>
+       <zorder>verticalSpacer_10</zorder>
+       <zorder>verticalSpacer_11</zorder>
+       <zorder>horizontalSpacer_15</zorder>
+       <zorder>horizontalSpacer_16</zorder>
+       <zorder>horizontalSpacer_17</zorder>
+       <zorder>horizontalSpacer_18</zorder>
+       <zorder>verticalSpacer_12</zorder>
+       <zorder>horizontalSpacer_19</zorder>
+       <zorder>horizontalSpacer_20</zorder>
+       <zorder>horizontalSpacer_21</zorder>
+      </widget>
+      <widget class="QWidget" name="HTTP">
+       <attribute name="title">
+        <string>http</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_11">
         <item row="0" column="1">
-         <spacer name="verticalSpacer_11">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
+         <widget class="QScrollArea" name="scrollArea_3">
+          <property name="styleSheet">
+           <string notr="true">QScrollArea { background: transparent; }
+QScrollArea &gt; QWidget &gt; QWidget { background: transparent; }</string>
           </property>
-          <property name="sizeType">
-           <enum>QSizePolicy::Fixed</enum>
+          <property name="widgetResizable">
+           <bool>true</bool>
           </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>20</width>
-            <height>40</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item row="3" column="1">
-         <widget class="QPlainTextEdit" name="plainTextEdit">
-          <property name="plainText">
-           <string>Type your Message Here!</string>
-          </property>
+          <widget class="QWidget" name="scrollAreaWidgetContents_3">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>506</width>
+             <height>466</height>
+            </rect>
+           </property>
+           <layout class="QGridLayout" name="gridLayout_12">
+            <item row="4" column="2">
+             <spacer name="verticalSpacer_22">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Fixed</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>60</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="7" column="1">
+             <spacer name="horizontalSpacer_25">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="7" column="0">
+             <widget class="QPushButton" name="pushButton_3">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>150</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(0, 85, 0);</string>
+              </property>
+              <property name="text">
+               <string>GET</string>
+              </property>
+              <property name="icon">
+               <iconset resource="background.qrc">
+                <normaloff>:/icon/Icons/inbox-icon-46120.png</normaloff>:/icon/Icons/inbox-icon-46120.png</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>32</width>
+                <height>32</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+            <item row="8" column="0">
+             <spacer name="verticalSpacer_20">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Fixed</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="7" column="2" alignment="Qt::AlignRight">
+             <widget class="QPushButton" name="pushButton_5">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>150</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(0, 85, 0);</string>
+              </property>
+              <property name="text">
+               <string>POST</string>
+              </property>
+              <property name="icon">
+               <iconset resource="background.qrc">
+                <normaloff>:/icon/Icons/upload.png</normaloff>:/icon/Icons/upload.png</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>32</width>
+                <height>32</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLabel" name="label_2">
+              <property name="styleSheet">
+               <string notr="true">background-color: rgba(255, 255, 255, 0);
+border-color: rgba(255, 255, 255, 0);</string>
+              </property>
+              <property name="text">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;&lt;span style=&quot; color:#ff0000;&quot;&gt;APN Name :&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+             </widget>
+            </item>
+            <item row="6" column="0">
+             <spacer name="verticalSpacer_21">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Fixed</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="2" column="2">
+             <widget class="QLineEdit" name="lineEdit_16">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>300</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>No Need to Type Twice APN Name </string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="3">
+             <spacer name="horizontalSpacer_26">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Fixed</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="3" column="0">
+             <widget class="QLabel" name="label_14">
+              <property name="styleSheet">
+               <string notr="true">background-color: rgba(255, 255, 255, 0);
+border-color: rgba(255, 255, 255, 0);</string>
+              </property>
+              <property name="text">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;&lt;span style=&quot; color:#ff0000;&quot;&gt;Source Address :&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+             </widget>
+            </item>
+            <item row="5" column="0" colspan="3">
+             <widget class="QPlainTextEdit" name="plainTextEdit_3"/>
+            </item>
+            <item row="0" column="2" alignment="Qt::AlignRight">
+             <widget class="QPushButton" name="pushButton_26">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>150</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(170, 0, 0);</string>
+              </property>
+              <property name="text">
+               <string>Close Session</string>
+              </property>
+              <property name="icon">
+               <iconset resource="background.qrc">
+                <normaloff>:/icon/Icons/Graphicloads-100-Flat-2-Outside.ico</normaloff>:/icon/Icons/Graphicloads-100-Flat-2-Outside.ico</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>32</width>
+                <height>32</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="2">
+             <widget class="QPlainTextEdit" name="plainTextEdit_2">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>300</width>
+                <height>50</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
          </widget>
         </item>
        </layout>
       </widget>
-     </widget>
-    </item>
-    <item row="0" column="1">
-     <widget class="QLabel" name="label">
-      <property name="text">
-       <string>Serial Terminal</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="1">
-     <widget class="QPlainTextEdit" name="SerialConsole">
-      <property name="minimumSize">
-       <size>
-        <width>300</width>
-        <height>0</height>
-       </size>
-      </property>
-      <property name="toolTip">
-       <string>Serial Console is readonly!!</string>
-      </property>
-      <property name="readOnly">
-       <bool>true</bool>
-      </property>
-      <property name="plainText">
-       <string>Serial Console</string>
-      </property>
+      <widget class="QWidget" name="TCPUDP">
+       <attribute name="title">
+        <string>TCP/ UDP</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_9">
+        <item row="0" column="0">
+         <widget class="QScrollArea" name="scrollArea_2">
+          <property name="styleSheet">
+           <string notr="true">QScrollArea { background: transparent; }
+QScrollArea &gt; QWidget &gt; QWidget { background: transparent; }</string>
+          </property>
+          <property name="widgetResizable">
+           <bool>true</bool>
+          </property>
+          <widget class="QWidget" name="scrollAreaWidgetContents_2">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>530</width>
+             <height>581</height>
+            </rect>
+           </property>
+           <layout class="QFormLayout" name="formLayout_4">
+            <property name="fieldGrowthPolicy">
+             <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+            </property>
+            <item row="0" column="0">
+             <widget class="QLabel" name="label_3">
+              <property name="styleSheet">
+               <string notr="true">background-color: rgba(255, 255, 255, 0);
+border-color: rgba(255, 255, 255, 0);</string>
+              </property>
+              <property name="text">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;&lt;span style=&quot; color:#ff0000;&quot;&gt;Choose Your Preference :&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QComboBox" name="comboBox">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>100</width>
+                <height>50</height>
+               </size>
+              </property>
+              <item>
+               <property name="text">
+                <string>Select</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>TCP</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>UDP</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLabel" name="label_4">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>200</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgba(255, 255, 255, 0);
+border-color: rgba(255, 255, 255, 0);</string>
+              </property>
+              <property name="text">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;&lt;span style=&quot; color:#ff0000;&quot;&gt;APN Name :&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QLineEdit" name="lineEdit_2">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>300</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>No Need to type twice APN Name</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLabel" name="label_5">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>200</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgba(255, 255, 255, 0);
+border-color: rgba(255, 255, 255, 0);</string>
+              </property>
+              <property name="text">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;&lt;span style=&quot; color:#ff0000;&quot;&gt;Server IP :&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1">
+             <widget class="QLineEdit" name="lineEdit_4">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                <horstretch>30</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>300</width>
+                <height>0</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="0">
+             <widget class="QLabel" name="label_7">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>200</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgba(255, 255, 255, 0);
+border-color: rgba(255, 255, 255, 0);</string>
+              </property>
+              <property name="text">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;&lt;span style=&quot; color:#ff0000;&quot;&gt;Port No :&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="1">
+             <widget class="QLineEdit" name="lineEdit_5">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>50</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="1">
+             <spacer name="verticalSpacer_15">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Fixed</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="5" column="0">
+             <widget class="QPushButton" name="pushButton_8">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>150</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(0, 85, 0);</string>
+              </property>
+              <property name="text">
+               <string>Connect</string>
+              </property>
+              <property name="icon">
+               <iconset resource="background.qrc">
+                <normaloff>:/icon/Icons/connect-icon.png</normaloff>:/icon/Icons/connect-icon.png</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>32</width>
+                <height>32</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+            <item row="5" column="1">
+             <widget class="QPushButton" name="pushButton_7">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>150</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(170, 0, 0);</string>
+              </property>
+              <property name="text">
+               <string>Disconnect</string>
+              </property>
+              <property name="icon">
+               <iconset resource="background.qrc">
+                <normaloff>:/icon/Icons/45420.png</normaloff>:/icon/Icons/45420.png</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>32</width>
+                <height>32</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+            <item row="6" column="0">
+             <spacer name="verticalSpacer_13">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Fixed</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="7" column="0" colspan="2">
+             <widget class="QPlainTextEdit" name="plainTextEdit_7">
+              <property name="plainText">
+               <string>Type your Message Here</string>
+              </property>
+             </widget>
+            </item>
+            <item row="9" column="1">
+             <spacer name="verticalSpacer_18">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Fixed</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>10</width>
+                <height>10</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="10" column="0">
+             <spacer name="verticalSpacer_14">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Fixed</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="10" column="1">
+             <widget class="QPushButton" name="pushButton_25">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>150</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(0, 85, 0);</string>
+              </property>
+              <property name="text">
+               <string>Send</string>
+              </property>
+              <property name="icon">
+               <iconset resource="background.qrc">
+                <normaloff>:/icon/Icons/Telegram (1).png</normaloff>:/icon/Icons/Telegram (1).png</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>32</width>
+                <height>32</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+            <item row="11" column="1">
+             <spacer name="verticalSpacer_17">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Fixed</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="FTP">
+       <attribute name="title">
+        <string>FTP</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_7">
+        <item row="0" column="0">
+         <widget class="QScrollArea" name="scrollArea">
+          <property name="styleSheet">
+           <string notr="true">QScrollArea { background: transparent; }
+QScrollArea &gt; QWidget &gt; QWidget { background: transparent; }</string>
+          </property>
+          <property name="widgetResizable">
+           <bool>true</bool>
+          </property>
+          <widget class="QWidget" name="scrollAreaWidgetContents">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>636</width>
+             <height>637</height>
+            </rect>
+           </property>
+           <layout class="QGridLayout" name="gridLayout_8">
+            <item row="7" column="2" alignment="Qt::AlignTop">
+             <widget class="QWidget" name="widget" native="true">
+              <layout class="QGridLayout" name="gridLayout_6">
+               <item row="0" column="2" rowspan="2">
+                <widget class="QPushButton" name="pushButton_12">
+                 <property name="minimumSize">
+                  <size>
+                   <width>150</width>
+                   <height>50</height>
+                  </size>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color: rgb(170, 0, 0);</string>
+                 </property>
+                 <property name="text">
+                  <string>Disconnect</string>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="background.qrc">
+                   <normaloff>:/icon/Icons/45420.png</normaloff>:/icon/Icons/45420.png</iconset>
+                 </property>
+                 <property name="iconSize">
+                  <size>
+                   <width>32</width>
+                   <height>32</height>
+                  </size>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0" rowspan="2">
+                <widget class="QPushButton" name="pushButton_11">
+                 <property name="minimumSize">
+                  <size>
+                   <width>150</width>
+                   <height>50</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>16777215</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color: rgb(0, 85, 0);</string>
+                 </property>
+                 <property name="text">
+                  <string>Connect</string>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="background.qrc">
+                   <normaloff>:/icon/Icons/connect-icon.png</normaloff>:/icon/Icons/connect-icon.png</iconset>
+                 </property>
+                 <property name="iconSize">
+                  <size>
+                   <width>32</width>
+                   <height>32</height>
+                  </size>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <spacer name="horizontalSpacer_22">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeType">
+                  <enum>QSizePolicy::Fixed</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="1" column="2">
+             <widget class="QLineEdit" name="lineEdit_6"/>
+            </item>
+            <item row="1" column="1">
+             <widget class="QLabel" name="label_9">
+              <property name="styleSheet">
+               <string notr="true">background-color: rgba(255, 255, 255, 0);
+border-color: rgba(255, 255, 255, 0);</string>
+              </property>
+              <property name="text">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;&lt;span style=&quot; color:#ff0000;&quot;&gt;FTP Server :&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="2">
+             <widget class="QLineEdit" name="lineEdit_7"/>
+            </item>
+            <item row="8" column="2">
+             <widget class="QLineEdit" name="lineEdit_9"/>
+            </item>
+            <item row="0" column="2">
+             <widget class="QLineEdit" name="lineEdit_11">
+              <property name="placeholderText">
+               <string>Already Typed?No Need To Type Again</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QLabel" name="label_8">
+              <property name="styleSheet">
+               <string notr="true">background-color: rgba(255, 255, 255, 0);
+border-color: rgba(255, 255, 255, 0);</string>
+              </property>
+              <property name="text">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;&lt;span style=&quot; color:#ff0000;&quot;&gt;APN Name :&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+             </widget>
+            </item>
+            <item row="9" column="2">
+             <widget class="QLineEdit" name="lineEdit_10"/>
+            </item>
+            <item row="4" column="1">
+             <widget class="QLabel" name="label_11">
+              <property name="styleSheet">
+               <string notr="true">background-color: rgba(255, 255, 255, 0);
+border-color: rgba(255, 255, 255, 0);</string>
+              </property>
+              <property name="text">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;&lt;span style=&quot; color:#ff0000;&quot;&gt;Password :&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="2">
+             <widget class="QLineEdit" name="lineEdit_8"/>
+            </item>
+            <item row="8" column="1">
+             <widget class="QLabel" name="label_12">
+              <property name="styleSheet">
+               <string notr="true">background-color: rgba(255, 255, 255, 0);
+border-color: rgba(255, 255, 255, 0);</string>
+              </property>
+              <property name="text">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;&lt;span style=&quot; color:#ff0000;&quot;&gt;File Name :&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+             </widget>
+            </item>
+            <item row="9" column="1">
+             <widget class="QLabel" name="label_13">
+              <property name="styleSheet">
+               <string notr="true">background-color: rgba(255, 255, 255, 0);
+border-color: rgba(255, 255, 255, 0);</string>
+              </property>
+              <property name="text">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;&lt;span style=&quot; color:#ff0000;&quot;&gt;Directry :&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+             </widget>
+            </item>
+            <item row="10" column="1" rowspan="3" colspan="2">
+             <widget class="QPlainTextEdit" name="plainTextEdit_4">
+              <property name="plainText">
+               <string>Caution: As the Push data Size varies carrier to Carrier It is advisable to Push small data at a time. (10bytes is prefarable)</string>
+              </property>
+             </widget>
+            </item>
+            <item row="13" column="1">
+             <widget class="QPushButton" name="pushButton_10">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                <horstretch>100</horstretch>
+                <verstretch>100</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>150</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(0, 85, 0);</string>
+              </property>
+              <property name="text">
+               <string>FTP Get</string>
+              </property>
+              <property name="icon">
+               <iconset resource="background.qrc">
+                <normaloff>:/icon/Icons/inbox-icon-46120.png</normaloff>:/icon/Icons/inbox-icon-46120.png</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>32</width>
+                <height>32</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+            <item row="13" column="2" alignment="Qt::AlignRight">
+             <widget class="QPushButton" name="pushButton_9">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                <horstretch>100</horstretch>
+                <verstretch>100</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>150</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(0, 85, 0);</string>
+              </property>
+              <property name="text">
+               <string>FTP Push</string>
+              </property>
+              <property name="icon">
+               <iconset resource="background.qrc">
+                <normaloff>:/icon/Icons/upload.png</normaloff>:/icon/Icons/upload.png</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>32</width>
+                <height>32</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1">
+             <widget class="QLabel" name="label_10">
+              <property name="styleSheet">
+               <string notr="true">background-color: rgba(255, 255, 255, 0);
+border-color: rgba(255, 255, 255, 0);</string>
+              </property>
+              <property name="text">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;&lt;span style=&quot; color:#ff0000;&quot;&gt;Username :&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+             </widget>
+            </item>
+            <item row="5" column="2">
+             <spacer name="verticalSpacer_19">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Fixed</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="4" column="3">
+             <spacer name="horizontalSpacer_23">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Fixed</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="14" column="1">
+             <spacer name="verticalSpacer_16">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Fixed</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="2" column="0">
+             <spacer name="horizontalSpacer_24">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Fixed</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
      </widget>
     </item>
    </layout>
@@ -898,7 +2157,7 @@ QPlainTextEdit {border:4px outset; border-radius: 0px; border-color: blue; color
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset resource="background.qrc">
+    <iconset>
      <normaloff>:/Icons/Icons/save.png</normaloff>:/Icons/Icons/save.png</iconset>
    </property>
    <property name="text">
@@ -910,7 +2169,7 @@ QPlainTextEdit {border:4px outset; border-radius: 0px; border-color: blue; color
   </action>
   <action name="actionNew">
    <property name="icon">
-    <iconset resource="background.qrc">
+    <iconset>
      <normaloff>:/Icons/Icons/New.png</normaloff>:/Icons/Icons/New.png</iconset>
    </property>
    <property name="text">
@@ -918,10 +2177,6 @@ QPlainTextEdit {border:4px outset; border-radius: 0px; border-color: blue; color
    </property>
   </action>
   <action name="actionOpen">
-   <property name="icon">
-    <iconset resource="background.qrc">
-     <normaloff>:/Icons/Icons/open.png</normaloff>:/Icons/Icons/open.png</iconset>
-   </property>
    <property name="text">
     <string>&amp;Open</string>
    </property>

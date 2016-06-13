@@ -1,7 +1,7 @@
 from PyQt4 import QtGui
 from PyQt4 import QtCore
 
-import GSMUtility_New, sys
+import GSMUtility, sys
 import Call_form, sys
 import sys
 import linecache
@@ -22,6 +22,7 @@ number = ''
 smsnum = ''
 sms_body = ''
 c = 0
+read_data = ''
 apn = ''
 server_ip = ''
 port_no = ''
@@ -62,12 +63,8 @@ class DialogClass(QtGui.QDialog, Call_form.Ui_Dialog):
     def __init__(self, parent=None):
         super(DialogClass, self).__init__(parent)
         self.setupUi(self)
-        # self.Thread2 = DialogThread()
-        # self.Thread1 = DialogClass()
         QtCore.QObject.connect(self.pushButton, QtCore.SIGNAL(_fromUtf8("clicked()")), self.Attend_Call)
         QtCore.QObject.connect(self.pushButton_2, QtCore.SIGNAL(_fromUtf8("clicked()")), self.Decline)
-        # QtCore.QObject.connect(self.Thread1, QtCore.SIGNAL(_fromUtf8("SERIAL_DATA")), self.Delete_Dialog)
-
     def Attend_Call(self):
         GSM_port.write('ATA' + "\r\n")
 
@@ -79,43 +76,7 @@ class DialogClass(QtGui.QDialog, Call_form.Ui_Dialog):
         self.close()
 
 
-        # def Delete_Dialog(self):
-        #     global Console_Data
-        #     global c
-        #     print 'abc'
-        #     if c!=0 :
-        #
-        #       if Console_Data[c+31:c+41]=='NO CARRIER':
-        #          self.close()
-
-    #
-    # class DialogThread(QtCore.QThread):
-    #        def __init__(self):
-    #          QtCore.QThread.__init__(self)
-    #
-    #        def __del__(self):
-    #          self.wait()
-    #
-    #        def run(self):
-    #          self.emit(QtCore.SIGNAL("SADHU_BABA"))
-    # def Delete_Dialog(self):
-    #     global Console_Data
-    #     global c
-    #     print Console_Data[c+29:c+32]
-    # print Console_Data[c+31:c+41]
-    # if Console_Data[c+31:c+41]=='NO CARRIER' or Console_Data[c+29:c+32]=='ADH':
-    #    incoming_call=False
-    # btn = QtGui.QPushButton('Yes', self)
-    # btn.clicked.connect(self.close)
-    # print "trigger signal received"
-    # def run(self):
-    #      global c
-    #      global Console_Data
-    # #     print c
-    #      self.numberLineedit.setText(str(Console_Data[c:c+13]))
-
-
-class MainGUIClass(QtGui.QMainWindow, GSMUtility_New.Ui_MainWindow):
+class MainGUIClass(QtGui.QMainWindow, GSMUtility.Ui_MainWindow):
     def __init__(self, parent=None):
         super(MainGUIClass, self).__init__(parent)
         self.setupUi(self)
@@ -126,8 +87,6 @@ class MainGUIClass(QtGui.QMainWindow, GSMUtility_New.Ui_MainWindow):
         QtCore.QObject.connect(self.connectButton, QtCore.SIGNAL(_fromUtf8("clicked()")), self.connect_disconnect)
         QtCore.QObject.connect(self.Thread1, QtCore.SIGNAL(_fromUtf8("SERIAL_DATA")), self.serial_data)
         QtCore.QObject.connect(self.Thread1, QtCore.SIGNAL(_fromUtf8("SERIAL_DATA")), self.Delete_Dialog)
-        # QtCore.QObject.connect(self.plainTextEdit, QtCore.SIGNAL(_fromUtf8("textChanged(QString)")), self.Count_no)
-        # QtCore.QObject.connect(self.plainTextEdit, QtCore.SIGNAL(_fromUtf8("textChanged(QString)")), self.Count_no)
         QtCore.QObject.connect(self.Thread1, QtCore.SIGNAL(_fromUtf8("INCOMING_CALL")), self.showno)
         QtCore.QObject.connect(self.SendButton, QtCore.SIGNAL(_fromUtf8("clicked()")), self.send_script)
         QtCore.QObject.connect(self.ScriptLineEdit, QtCore.SIGNAL(_fromUtf8("textChanged(QString)")), self.ScriptText)
@@ -220,14 +179,12 @@ class MainGUIClass(QtGui.QMainWindow, GSMUtility_New.Ui_MainWindow):
     def ScriptText(self, data):
         global ScriptData
         ScriptData = data
-        print 'a'
-        
+
     def send_script(self):
         global ScriptData
         GSM_port.write(str(ScriptData) + "\r\n")
 
     def callno(self, data):
-
         global number
         number = data
 
@@ -247,22 +204,14 @@ class MainGUIClass(QtGui.QMainWindow, GSMUtility_New.Ui_MainWindow):
         sms_body = sms_data
         count=len(sms_body)
         self.lineEdit.setText(str(count))
-        # count = self.smstextEdit.toPlainText().length();
-        # self.lineEdit.setText(str(count))
 
     def sendfunc(self):
-
         global sms_body
         global smsnum
         GSM_port.write('AT+CMGS="' + str(smsnum) + '"' + chr(13))
         time.sleep(2)
         GSM_port.write(str(sms_body) + chr(26))
 
-    # def accept_call(self):
-    #     GSM_port.write('ATA' + chr(13))
-
-    # def decline(self):
-    #     GSM_port.write('ATH' + chr(13))
 
     def showno(self):
         global c
@@ -270,30 +219,26 @@ class MainGUIClass(QtGui.QMainWindow, GSMUtility_New.Ui_MainWindow):
         global incoming_call
         global app2
         if c != 0:
-
             local_var = ''
             local_var += Console_Data[c + 1:c + 13]
-
             if len(local_var) == 10:
                 app2 = DialogClass()
                 app2.numberLineedit.setText(str(Console_Data[c:c + 13]))
                 incoming_call = True
-                # app2.Thread2.start()
-                # self.emit(QtCore.SIGNAL("INCOMING_CALL"))
                 app2.exec_()
-                #
                 incoming_call = False
 
     def Delete_Dialog(self):
-        global Console_Data
+        # global Console_Data
+        global read_data
         global app2
         local2 = 0
-        local3 = ''
-        local3 += Console_Data
-        local2 = local3.rfind('NO CARRIER')
-        if local2 >= 0:
-            local3 = ''
+        local2 = read_data.rfind('NO CARRIER')
+        if local2 >=0:
+            read_data = ''
+            local2 = 0
             app2.close()
+
 
     def get_apn(self, data2):
         global apn
@@ -368,10 +313,10 @@ class MainGUIClass(QtGui.QMainWindow, GSMUtility_New.Ui_MainWindow):
     def get_fun(self):
         global source_address
         global get_post
-        global new_apn
+        global apn
         GSM_port.write('AT+SAPBR=3,1,"Contype","GPRS"' + chr(13))
         # time.sleep(1)
-        GSM_port.write('AT+SAPBR=3,1,"APN",' + '"' + str(new_apn) + '"' + chr(13))
+        GSM_port.write('AT+SAPBR=3,1,"APN",' + '"' + str(apn) + '"' + chr(13))
         # time.sleep(1)
         GSM_port.write('AT+SAPBR=1,1' + chr(13))
         time.sleep(1)
@@ -520,23 +465,21 @@ class WorkThread(QtCore.QThread):
     def run(self):
         global portOpen
         global incoming_call
+        global read_data
+
         while True:
             while portOpen:
                 global c
                 d = GSM_port.read()
                 global Console_Data
                 Console_Data += d
+                read_data+=d
                 if incoming_call == False:
                     if ('+CLIP' in Console_Data):
                         c = Console_Data.rfind('+CLIP:')
 
                         c += 8
                     self.emit(QtCore.SIGNAL("INCOMING_CALL"))
-                    # if c!=0:
-                    #    print Console_Data[c]
-                    #    if Console_Data[c+31:c+41]=='NO CARRIER':
-                    #         print 'hey babby'
-
                 self.emit(QtCore.SIGNAL("SERIAL_DATA"))
 
 
